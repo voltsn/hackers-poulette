@@ -1,7 +1,9 @@
 <?php 
     require "./src/Utils/Form.php";
+    require "./src/Config/Database.php";
     
     $validation_result;
+    $query_status = null;
 
     if (!empty($_POST)){
         $form = new Form(["firstname" => $_POST["firstname"], 
@@ -11,6 +13,18 @@
                         ]);
 
         $validation_result = $form->validate_form();
+        if (!is_array($validation_result)) {
+          $db = new Database();
+          $conn = $db->connect();
+
+          $insert_query = "
+                           INSERT INTO support_messages (firstname, lastname, email, comment)
+                           VALUES (:firstname, :lastname, :email, :comment)
+                          ";
+
+          $statement = $conn->prepare($insert_query);
+          $query_status = $statement->execute($form->get_fields());
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -22,6 +36,11 @@
         <title>Support | Hackers Poulette</title>
     </head>
     <body>
+        <?php 
+          if ($query_status){
+            echo "<p style='color: green;'> Message sent successfully! </p>";
+          }
+        ?>
         <form action="index.php" method="post">
             <div>
                 <label for="firstname">First name</label>
