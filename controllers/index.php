@@ -1,7 +1,7 @@
 <?php 
+    use Dotenv\Dotenv;
     require "Utils/Form.php";
-    require "Config/Database.php";
-    
+
     $validation_result;
     $query_status = null;
     $reCaptcha_valid = null;
@@ -9,9 +9,11 @@
 
     if (!empty($_POST)){
         $form = NULL;
+        
+        $dotenv = Dotenv::createImmutable(__DIR__."/../");
+        $dotenv->load();
 
-        $secret_key = "6LeWXzskAAAAACDPnphSWG4_7CCEqjpActSt2zY7";
-        $reCaptcha_url = "https://www.google.com/recaptcha/api/siteverify?secret=".$secret_key."&response=".$_POST["g-recaptcha-response"];
+        $reCaptcha_url = "https://www.google.com/recaptcha/api/siteverify?secret=".$_ENV['SECRET_KEY']."&response=".$_POST["g-recaptcha-response"];
         $response = json_decode(file_get_contents($reCaptcha_url));
 
         $reCaptcha_valid = $response->success;
