@@ -1,6 +1,7 @@
-<?php 
+<?php     
     use Dotenv\Dotenv;
     require "Utils/Form.php";
+    require "Database/Database.php";
 
     $validation_result;
     $query_status = null;
