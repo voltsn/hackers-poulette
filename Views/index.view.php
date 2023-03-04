@@ -1,11 +1,11 @@
-<?php require "Views/partials/head.php"; ?>
+<?php require __DIR__."/partials/head.php"; ?>
 <main>
 <?php 
 if ($query_status){
     echo "<p class='text-red-600 p-6'> Message sent successfully! </p>";
 }
 
-if (isset($reCaptcha_valid) && $reCaptcha_valid){
+if (isset($reCaptcha_valid) && !$reCaptcha_valid){
     echo "<p class='text-red-600 p-6'> Failed to submit form, please try again</p>";
 }
 ?>
@@ -130,4 +130,4 @@ if (isset($reCaptcha_valid) && $reCaptcha_valid){
         form.submit();
     }
 </script>
-<?php require "Views/partials/footer.php"; ?>
+<?php require __DIR__."/partials/footer.php"; ?>
