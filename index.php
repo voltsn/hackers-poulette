@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__."/vendor/autoload.php";
+
 $uri = $_SERVER["REQUEST_URI"];
 
 $routes = [
