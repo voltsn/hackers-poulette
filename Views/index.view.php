@@ -123,7 +123,7 @@ if (isset($reCaptcha_valid) && !$reCaptcha_valid){
             >
         </form>
     </div>
-<main>
+</main>
 <script>
     function onSubmit(token) {
         const form = document.querySelector("#support-form");
