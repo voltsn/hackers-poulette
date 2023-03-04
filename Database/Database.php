@@ -1,14 +1,15 @@
-<?php 
-    class Database{
-      private $host = "localhost";
-      private $db_name = "hackeuse_poulette";
-      private $username = "segfault";
-      private $db_password = "beCode2023";
-      private $conn = null;
+<?php
+    use Dotenv\Dotenv;
 
+    class Database{
+      private $conn = null;
+      
       public function connect() {
         try{
-          $this->conn = new PDO("mysql:host=$this->host;dbname=$this->db_name", $this->username, $this->db_password);
+          $dotenv = Dotenv::createImmutable(__DIR__."/../");
+          $dotenv->load();
+
+          $this->conn = new PDO("mysql:host=$_ENV[DB_HOST];dbname=$_ENV[DB_NAME]", $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
           $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }catch (PDOException $e) {
           echo "Connection error: ".$e->getMessage();
