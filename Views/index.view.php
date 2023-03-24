@@ -9,8 +9,8 @@ if (isset($reCaptcha_valid) && !$reCaptcha_valid){
     echo "<p class='text-red-600 p-6'> Failed to submit form, please try again</p>";
 }
 ?>
-    <div class="block p-6  max-w-sm">
-        <form id="support-form" action="/" method="post">
+    <div class="flex items-center justify-center p-6">
+        <form class="max-w-sm grow" id="support-form" action="/" method="post">
             <div class="form-group mb-6">
                 <label for="firstname">First name</label>
                 <input type="text" name="firstname" id="firstname"
