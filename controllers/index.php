@@ -6,7 +6,7 @@
     $validation_result;
     $query_status = null;
     $reCaptcha_valid = null;
-    $heading = "Contact us";
+    $heading = "We have your back! Tell us what you need help with.";
 
     if (!empty($_POST)){
         $form = NULL;
