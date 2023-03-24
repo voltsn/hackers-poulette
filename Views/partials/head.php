@@ -11,10 +11,10 @@
     <body>
         <?php if (isset($heading)) {
             echo "
-            <header class='p-6 text-3xl'>
-                <h1 class='text-teal-500'>$heading</h1>
+            <header class='p-6 text-3xl text-center text-white bg-red-700'>
+                <h1>$heading</h1>
             </header>
-            
+
             ";
         }
         ?>
