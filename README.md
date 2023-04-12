@@ -21,3 +21,4 @@ The web page was build using:
 - [X] Form Validation
 - [x] Protection against bots, using [google reCaptcha](https://www.google.com/recaptcha/about/)
 - [x] Data storage
+- [ ] Mailing the submitted form
