@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-screen">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +8,10 @@
         <script src="https://www.google.com/recaptcha/api.js"></script>
         <title>Support | Hackers Poulette</title>
     </head>
-    <body>
+    <body class="h-full bg-blue-950 flex flex-col justify-evenly checker-bg">
         <?php if (isset($heading)) {
             echo "
-            <header class='p-6 text-3xl text-center text-white bg-red-700'>
+            <header class='p-6 text-3xl text-center text-white'>
                 <h1>$heading</h1>
             </header>
 
