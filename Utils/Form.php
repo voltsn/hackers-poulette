@@ -19,34 +19,42 @@
         public function validate_form(){
             $this->sanitize_fields();
             $this->fields_valid();
-            return empty($this->errors) ? TRUE : $this->errors ;
+            return empty($this->errors) ? TRUE : $this->errors;
         }
 
         private function fields_valid(){
             foreach($this->fields as $field => $value) {
-                if ($value == ""){
-                    $this->errors[$field] = "please fill in this field";
-                }else if ($field == "email"){
-                    $value = $this->validate_email($value);
-                    if (!$value) {
-                        $this->errors[$field] = "please enter a valid email address";
-                    }
-                } else if ($field == "comment") {
-                    if (!$this->is_valid_length($value, 2, 1000)){
-                        $this->errors[$field] = "You can enter between 2 and 1000 characters";
-                    }
-                } else {
-                    if (!$this->is_valid_length($value, 2, 255)){
-                        $this->errors[$field] = "You can enter between 2 and 255 charaters";
-                    }
+                switch ($value) {
+                    case '':
+                        $this->errors[$field] = "please fill in this field";
+                        break;
                     
-                    if (preg_match("/[0-9]/", $value)) {
-                        $this->errors[$field] = "$field can't contain numbers";
-                    }
+                    case 'email':
+                        $value = $this->validate_email();
+                        if (!$value){
+                            $this->errors[$field] = "please enter a 
+                                                    valid email address";
+                        }
+
+                    case 'comment':
+                        if (!$this->is_valid_length($value, 2, 1000)){
+                           $this->errors[$field] = "You can enter between 2 and
+                                                    1000 characters";
+                        }
+                        break;
+   
+                    default:
+                         if (!$this->is_valid_length($value, 2, 255)){
+                            $this->errors[$field] = "You can enter between 2 and
+                                                     255 charaters";
+                         }
+                        
+                         if (preg_match("/[0-9]/", $value)) {
+                            $this->errors[$field] = "$field can't contain numbers";
+                         }
+                        break;
                 }
             }
-            
-            return empty($this->errors) ? TRUE : FALSE;
         }
         
         private function sanitize_fields(){
