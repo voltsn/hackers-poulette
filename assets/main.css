@@ -548,24 +548,40 @@ video {
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.w-11\/12 {
+  width: 91.666667%;
+}
+
 .w-full {
   width: 100%;
 }
 
-.max-w-sm {
-  max-width: 24rem;
+.max-w-2xl {
+  max-width: 42rem;
 }
 
-.grow {
-  flex-grow: 1;
+.flex-col {
+  flex-direction: column;
 }
 
-.items-center {
-  align-items: center;
+.place-items-center {
+  place-items: center;
 }
 
-.justify-center {
-  justify-content: center;
+.justify-evenly {
+  justify-content: space-evenly;
 }
 
 .rounded {
@@ -574,6 +590,11 @@ video {
 
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.rounded-t {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
 }
 
 .border {
@@ -594,14 +615,14 @@ video {
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
 
+.bg-blue-950 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 37 84 / var(--tw-bg-opacity));
+}
+
 .bg-red-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 226 226 / var(--tw-bg-opacity));
-}
-
-.bg-red-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
 }
 
 .bg-white {
@@ -625,6 +646,11 @@ video {
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .px-6 {
@@ -657,6 +683,14 @@ video {
   padding-bottom: 1.25rem;
 }
 
+.pt-1 {
+  padding-top: 0.25rem;
+}
+
+.pt-1\.5 {
+  padding-top: 0.375rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -669,6 +703,11 @@ video {
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .text-xs {
@@ -697,9 +736,14 @@ video {
   color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
-.text-red-600 {
+.text-green-400 {
   --tw-text-opacity: 1;
-  color: rgb(220 38 38 / var(--tw-text-opacity));
+  color: rgb(74 222 128 / var(--tw-text-opacity));
+}
+
+.text-red-400 {
+  --tw-text-opacity: 1;
+  color: rgb(248 113 113 / var(--tw-text-opacity));
 }
 
 .text-red-700 {
@@ -737,6 +781,13 @@ video {
 
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.checker-bg{
+  background-size: 6rem 6rem;
+  background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) .05em, transparent .1em),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) .05em, transparent .1em);
 }
 
 .hover\:bg-blue-700:hover {
